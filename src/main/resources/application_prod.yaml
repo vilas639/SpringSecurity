@@ -1,0 +1,51 @@
+spring:
+ application:
+  name: "SpringSecurity"
+  
+ config:
+    activate:
+      on-profile: "prod"
+  
+
+
+ datasource:
+   url: jdbc:mysql://localhost:3306/mydb?useSSL=false&allowPublicKeyRetrieval=true
+   driverClassName: com.mysql.cj.jdbc.Driver
+   username: root
+   password: Vilas@123
+ h2:
+  console:
+   enabled: true
+ jpa:
+   properties: 
+    hibernate:
+     dialect: org.hibernate.dialect.MySQLDialect
+   database-platform: org.hibernate.dialect.MySQLDialect
+   hibernate:
+     ddl-auto: update
+   show-sql: true
+   
+  
+           
+ 
+ #security:
+  #  user:
+   #   name: "vilas"
+    #  password: 123
+
+
+ 
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE     
+        
+  pattern:
+   console: ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}
+            
+server:
+ servlet:   
+  session:       
+    timeout: 2m               
+        
